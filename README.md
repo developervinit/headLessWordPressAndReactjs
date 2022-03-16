@@ -1,0 +1,1 @@
+# headLessWordPressAndReactjs directory containing headless wordpress projects
