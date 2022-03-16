@@ -9,6 +9,7 @@ const Navbar = () => {
 
     var navHomeClass, navPostClass, navLinkFocusBorderHome, navLinkFocusBorderPost;
 
+    //condition to highlight current page
     if(path === '/'){
         navLinkFocusBorderHome = "navLinkFocusBorder";
         navLinkFocusBorderPost = ""
@@ -17,6 +18,7 @@ const Navbar = () => {
         navLinkFocusBorderPost = "navLinkFocusBorder"
     }
 
+    //way of using mutiple and dynamic class
     navHomeClass = `navlink ${navLinkFocusBorderHome}`;
     navPostClass = `navlink ${navLinkFocusBorderPost}`;
     

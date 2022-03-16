@@ -6,6 +6,7 @@ const ImgComp = ({ postContent }) => {
 
     const [ imgUrl, setImgUrl ] = useState([]);
 
+    //getting url for the perticular image
     const forImgUrl = postContent._links['wp:featuredmedia'][0].href;
 
     const getImage = async (forImgUrl) => {

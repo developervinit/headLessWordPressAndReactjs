@@ -9,6 +9,7 @@ const Posts = () => {
 
     const [ posts, setPosts ] = useState([]);
 
+    //url of the wordpress website to extract the post
     const url = "https://ayurvedicstore.dponweb.com/wp-json/wp/v2/posts";
 
     const getPost = async () => {
@@ -20,11 +21,12 @@ const Posts = () => {
         getPost();
     }, []);
 
+    //removing html from the post content
     function removeHtmlAndSlice(data){
         return data.replace(/<\/?[^>]+(>|$)/g, "").slice(0, 200);
     }
     
-
+    //putting jsx into the variable
     let allPosts = posts.map(post => {
         return <div className="postBox" key={post.id}>
            <ImgComp postContent={post} />

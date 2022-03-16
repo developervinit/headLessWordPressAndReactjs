@@ -10,6 +10,8 @@ const PostComp = () => {
     const [ postContent, setPostContent ] = useState({});
 
     let params = useParams();
+
+    //url of the wordpress website to extract the post by id
     let postUrl = `https://ayurvedicstore.dponweb.com/wp-json/wp/v2/posts/${params.id}`;
 
     const fetchPostById = async (url) => {
@@ -22,10 +24,13 @@ const PostComp = () => {
         fetchPostById(postUrl);
     }, [postUrl]);
 
+
+    //removing html from the post content
     function removeHtmlAndSlice(data){
         return data.replace(/<\/?[^>]+(>|$)/g, "");
     }
 
+    //putting jsx into the variable
     let renderedPost = <div className="">
          <ImgComp postContent={postContent} />
          <div className="postCompId"><span>ID: </span>{postContent.id}</div>
@@ -33,8 +38,6 @@ const PostComp = () => {
          <div className="postCompTitle"><span>Title: </span>{postContent.title && postContent.title.rendered}</div>
          <div className="postCompContent">{postContent.content && removeHtmlAndSlice(postContent.content.rendered)}</div>
     </div>
-    
-    console.log(postContent);
 
     return(<>
        <div className="postCompHeading">Post</div>
